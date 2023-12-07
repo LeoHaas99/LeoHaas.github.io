@@ -10,8 +10,13 @@ class Main {
 
         this.frame = new Frame(this.canvas);
         window.addEventListener("mousemove", (e) => {
-      this.x = e.clientX +window.scrollX
+            this.x = e.clientX + window.scrollX
             this.y = e.clientY + window.scrollY;
+        });
+        // also for mobile
+        window.addEventListener("touchmove", (e) => {
+            this.x = e.touches[0].clientX + window.scrollX;
+            this.y = e.touches[0].clientY + window.scrollY;
         });
         window.addEventListener("resize", (e) => {
             this.canvas.width = window.innerWidth;
